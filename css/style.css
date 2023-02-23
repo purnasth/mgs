@@ -79,9 +79,10 @@ a:hover {
   height: 100vh;
   width: 100%;
   /* background-image: url("https://slidechef.net/wp-content/uploads/2021/06/Free-Animated-Chalkboard-Education-Deck-Google-Slides-2.jpg"); */
-  background-color: #131719;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25)),
+    url("https://scontent.fktm7-1.fna.fbcdn.net/v/t39.30808-6/329414554_2320826068088732_4450348556178641480_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=e3f864&_nc_ohc=BKZoWdS0GQUAX-KZCfC&_nc_oc=AQl-vgrQLv2zDj2D2lTHZPpQK_PTOtcgGW4U4jI3hKJer1OoNfU9mauhqiV80r_w_czkk9_Z9jm6L0mQ9xSHh-Ts&_nc_ht=scontent.fktm7-1.fna&oh=00_AfALotrEc9efLnixJh65Lu-4ZnQqDgDaGHpQAgRsX9xoCg&oe=63FC8629");
   background-size: cover;
-  background-position: center center;
+  /* background-position: center center; */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -1229,13 +1230,14 @@ section.form {
   /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
   color: #b3b3fe;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* text-transform: uppercase; */
   letter-spacing: 0.1rem;
   cursor: pointer;
   font-weight: 300;
   text-align: center;
   user-select: none;
+  text-shadow: 0 0 10px rgba(0,0,0,0.75);
 }
 :where(.hovered, .hovered-adjacent) {
   color: #ccccfa;

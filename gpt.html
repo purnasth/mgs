@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrance Class</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #ddd;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    color: #ffc107;
+  }
+
+  /* Media query for screens smaller than 768px */
+  @media only screen and (max-width: 767px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav {
+      width: 100%;
+      order: 1;
+    }
+
+    nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    nav ul li a {
+      padding: 8px;
+    }
+  }
+
+
+      /* Main Styles */
+      main {
+        padding: 2rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      section h2 {
+        margin-bottom: 1rem;
+      }
+
+      section ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      form input[type="text"],
+      form input[type="email"],
+      form textarea {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+
+      form input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      form input[type="submit"]:hover {
+        background-color: #ffc107;
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      /* Courses Section Styles */
+      #courses {
+        background-color: #fff;
+        padding: 4rem 0;
+      }
+
+      .course {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .course:hover {
+        transform: translateY(-0.2rem);
+      }
+
+      .course h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .course p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+
+      .course a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .course a:hover {
+        background-color: #0069d9;
+      }
+
+      /* Contact Form Page Styles */
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 0.3rem;
+        font-size: 1.1rem;
+        background-color: #eee;
+      }
+
+      textarea {
+        height: 10rem;
+      }
+
+      input[type="submit"] {
+        display: block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0069d9;
+      }
+
+      footer {
+        background-color: #222;
+        color: #fff;
+        padding: 4rem 0;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-column {
+        width: 20%;
+      }
+
+      .footer-column h3 {
+        margin-bottom: 1.5rem;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul li {
+        margin-bottom: 1rem;
+      }
+
+      ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        background-color: #111;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .about {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f2f2f2;
+        padding: 2rem;
+      }
+
+      .about-content {
+        flex-basis: 50%;
+        padding-right: 2rem;
+      }
+
+      .about-content h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .button:hover {
+        background-color: #ffc107;
+      }
+      .about-image {
+        flex-basis: 40%;
+      }
+
+      .about-image img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+
+      .slide.active-slide {
+        opacity: 1;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slide-content {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        color: #fff;
+        z-index: 1;
+      }
+
+      .slide-content h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .slide-content p {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #fff;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: background-color 0.5s ease;
+      }
+
+      .btn:hover {
+        background-color: #333;
+        color: #fff;
+      }
+
+      .prev-next-btns {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+      }
+
+      .prev-next-btns button {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        font-size: 3rem;
+        cursor: pointer;
+        transition: opacity 0.5s ease;
+      }
+
+      .prev-next-btns button:hover {
+        opacity: 0.7;
+      }
+
+      .prev-next-btns .prev-btn {
+        margin-left: 30px;
+      }
+
+      .prev-next-btns .next-btn {
+        margin-right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <h1>Entrance Class</h1>
+        <p>A place to achieve your academic dreams</p>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="slider">
+          <div class="slide active-slide">
+            <img
+              src="https://th.bing.com/th/id/R.6a7a745d0cf6e1478e104e6a7fee6cc1?rik=xULJFzGntGDtew&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2016%2f01%2fnature-wallpapers-38.jpg&ehk=dUtU7hvI%2bIv1ZAogg0%2b%2fznLW5KEYTsPob9LlywpnX1Q%3d&risl=&pid=ImgRaw&r=0"
+              alt="Slide 1"
+            />
+            <div class="slide-content">
+              <h1>Discover the World</h1>
+              <p>
+                Experience the thrill of adventure with our travel packages.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+          <div class="slide">
+            <img
+              src="https://th.bing.com/th/id/R.d144cc4dfdbbeef84ae6a04c60f5b14c?rik=6hZaiWXTloFaMQ&pid=ImgRaw&r=0"
+              alt="Slide 2"
+            />
+            <div class="slide-content">
+              <h1>Escape the Routine</h1>
+              <p>
+                Relax and unwind in beautiful destinations around the globe.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+          <div class="slide">
+            <img
+              src="https://th.bing.com/th/id/R.2479bd061cfa9bb52b7db3ccb0275db2?rik=v9AhRL07ZsYvwA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f6%2f2%2f1%2f1057098-cool-nature-backgrounds-2262x1504-for-windows-7.jpg&ehk=gLUnsyHTrJZ6SP5wxQF3bYS%2f3X41zJfRVnkWC7218%2bs%3d&risl=&pid=ImgRaw&r=0"
+              alt="Slide 3"
+            />
+            <div class="slide-content">
+              <h1>Create Memories</h1>
+              <p>
+                Make unforgettable memories with our guided tours and
+                activities.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="about-content">
+          <h1>Welcome to Our Website</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            malesuada tellus vel felis rutrum, a tincidunt nunc commodo.
+          </p>
+          <a href="#" class="button">Learn More</a>
+        </div>
+        <div class="about-image">
+          <img src="./images/hero_1.jpg" alt="About Image" />
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="container">
+          <h2>Our Courses</h2>
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="course">
+                <h3>Course Title 1</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam auctor commodo elit, at tincidunt magna maximus non.
+                  Vestibulum vel aliquam orci.
+                </p>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="course">
+                <h3>Course Title 2</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam auctor commodo elit, at tincidunt magna maximus non.
+                  Vestibulum vel aliquam orci.
+                </p>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="course">
+                <h3>Course Title 3</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam auctor commodo elit, at tincidunt magna maximus non.
+                  Vestibulum vel aliquam orci.
+                </p>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">Product 1</a></li>
+            <li><a href="#">Product 2</a></li>
+            <li><a href="#">Product 3</a></li>
+            <li><a href="#">Product 4</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Whitepapers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+
+      let currentIndex = 0;
+
+      function reset() {
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].classList.remove("active-slide");
+        }
+      }
+
+      function startSlide() {
+        reset();
+        slides[0].classList.add("active-slide");
+      }
+
+      function slideLeft() {
+        reset();
+        if (currentIndex === 0) {
+          currentIndex = slides.length - 1;
+        } else {
+          currentIndex--;
+        }
+        slides[currentIndex].classList.add("active-slide");
+      }
+
+      function slideRight() {
+        reset();
+        if (currentIndex === slides.length - 1) {
+          currentIndex = 0;
+        } else {
+          currentIndex++;
+        }
+        slides[currentIndex].classList.add("active-slide");
+      }
+
+      prevBtn.addEventListener("click", slideLeft);
+      nextBtn.addEventListener("click", slideRight);
+
+      startSlide();
+
+      // Keyboard navigation
+      document.addEventListener("keydown", function (event) {
+        if (event.code === "ArrowLeft") {
+          slideLeft();
+        } else if (event.code === "ArrowRight") {
+          slideRight();
+        }
+      });
+    </script>
+  </body>
+</html>
