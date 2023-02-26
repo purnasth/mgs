@@ -46,7 +46,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <title>Sajha Entrance</title>
+    <title>Mount Glory School</title>
   </head>
   <body>
     <div class="site-mobile-menu site-navbar-target">
@@ -68,12 +68,12 @@
                 <a href="#" class="d-flex align-items-center mr-4">
                   <span class="icon-envelope mr-2"></span>
                   <span class="d-none d-md-inline-block"
-                    >info@sajhaent.com</span
+                    >mntglory@gmail.com</span
                   >
                 </a>
                 <a href="#" class="d-flex align-items-center mr-auto">
                   <span class="icon-phone mr-2"></span>
-                  <span class="d-none d-md-inline-block">+977 9860688212</span>
+                  <span class="d-none d-md-inline-block">01-4276477</span>
                 </a>
               </div>
             </div>
@@ -102,12 +102,8 @@
           <div class="row align-items-center">
             <div class="col-2">
               <h1 class="my-0 site-logo">
-                <a href="index.html">
-                  <img
-                    src="icon/logoi5.png"
-                    alt="logo"
-                    style="width: 100px; margin: 10px"
-                  />
+                <a href="#">
+                  <img src="./icon/logo.png" alt="logo" class="logo" />
                 </a>
               </h1>
             </div>
@@ -126,10 +122,10 @@
                     class="site-menu main-menu js-clone-nav d-none d-lg-block"
                   >
                     <li class="active">
-                      <a href="#home-section" class="nav-link">Home</a>
+                      <a href="#" class="nav-link">Home</a>
                     </li>
                     <li>
-                      <a href="#classes-section" class="nav-link">Classes</a>
+                      <a href="#" class="nav-link">Classes</a>
                     </li>
                     <li class="has-children">
                       <a href="#" class="nav-link">Pages</a>
@@ -176,8 +172,9 @@
       <section
         class="form d-flex align-items-center justify-content-center flex-column min-vh-100"
       >
-        <h2 class="motto bubble-hover">सबैको विश्वास यहि साझा ENTRANCE!</h2>
-        <!-- <h2 class="motto bubble-hover">SAJHA ENTRANCE</h2> -->
+        <h2 class="bubble-hover"></h2>
+        <!-- <h2 class="motto bubble-hover">enhance the future</h2> -->
+        <h2 class="motto">"enhance the future"</h2>
         <form
           class="form-search d-flex align-items-center justify-content-center"
         >
@@ -187,7 +184,8 @@
             id="search"
             type="search"
           />
-          <label class="form__label" for="search">Search here</label>
+          <!-- <label class="form__label" for="search">What do you want to learn today?</label> -->
+          <label class="form__label" for="search">Search here </label>
           <div class="icon d-flex align-items-center justify-content-center">
             <svg
               viewBox="0 0 24 24"
@@ -655,7 +653,12 @@
             <div class="row">
               <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
                 <h2 class="footer-heading">
-                  <a href="https://www.purnashrestha.com.np/" target="_blank" class="logo">Purnashrestha.com.np</a>
+                  <a
+                    href="https://www.purnashrestha.com.np/"
+                    target="_blank"
+                    class="logo"
+                    >Purnashrestha.com.np</a
+                  >
                 </h2>
                 <p>
                   A small river named Duden flows by their place and supplies it
@@ -758,7 +761,9 @@
               All rights reserved | This template is made with
               <i class="bx-bx-heart" aria-hidden="true"></i>
               by
-              <a href="https://www.purnashrestha.com.np/" target="_blank">Purna Shrestha</a>
+              <a href="https://www.purnashrestha.com.np/" target="_blank"
+                >Purna Shrestha</a
+              >
             </p>
           </div>
           <div class="col-md-6 col-lg-4 text-md-right">
@@ -790,38 +795,57 @@
 
     <!-- For animated hover motto -->
     <script>
-      const bubbleHover = document.querySelector(".bubble-hover");
-      const text = bubbleHover.innerText;
-      const splitText = text.split("");
-      bubbleHover.innerText = "";
-      for (let i = 0; i < splitText.length; i++) {
-        bubbleHover.innerHTML += `<span>${splitText[i]}</span>`;
-      }
-      let char = 0;
-      let timer = setInterval(onTick, 50);
-      function onTick() {
-        const span = bubbleHover.querySelectorAll("span")[char];
-        span.classList.add("hovered");
-        char++;
-        if (char === splitText.length) {
-          complete();
-          return;
-        }
-      }
-      function complete() {
-        clearInterval(timer);
-        timer = null;
-      }
-      bubbleHover.addEventListener("mouseover", (e) => {
-        if (e.target.tagName === "SPAN") {
-          e.target.classList.add("hovered-adjacent");
-        }
+      const phrase = "Mount Glory School";
+
+      const targetEl = document.querySelector(".bubble-hover");
+
+      phrase.split("").map((char, idx) => {
+        const el = document.createElement("span");
+        el.innerText = char;
+        el.setAttribute("data-index", idx.toString());
+        el.classList.add("hover-char");
+
+        targetEl.appendChild(el);
       });
-      bubbleHover.addEventListener("mouseout", (e) => {
-        if (e.target.tagName === "SPAN") {
-          e.target.classList.remove("hovered-adjacent");
-        }
+
+      const hoverChars = [...document.getElementsByClassName("hover-char")];
+
+      const removeClasses = () => {
+        hoverChars.map((char) => {
+          char.classList.remove("hovered");
+          char.classList.remove("hovered-adjacent");
+        });
+      };
+
+      hoverChars.map((char) => {
+        char.addEventListener("mouseover", (e) => {
+          removeClasses();
+
+          const currentElement = e.target;
+          const index = parseInt(currentElement.getAttribute("data-index"), 10);
+
+          const prevIndex = index === 0 ? null : index - 1;
+          const nextIndex = index === phrase.length - 1 ? null : index + 1;
+
+          const prevEl =
+            prevIndex !== null &&
+            document.querySelector(`[data-index="${prevIndex}"]`);
+
+          const nextEl =
+            nextIndex !== null &&
+            document.querySelector(`[data-index="${nextIndex}"]`);
+
+          e.target.classList.add("hovered");
+          prevEl && prevEl.classList.add("hovered-adjacent");
+          nextEl && nextEl.classList.add("hovered-adjacent");
+        });
       });
+
+      document
+        .querySelector(".bubble-hover")
+        .addEventListener("mouseleave", () => {
+          removeClasses();
+        });
     </script>
   </body>
 </html>
